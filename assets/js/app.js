@@ -20,6 +20,7 @@ import VirtualizedLines from "./virtualized_lines";
 import Menu from "./menu";
 import UserForm from "./user_form";
 import VegaLite from "./vega_lite";
+import VisNetwork from "./vis_network";
 import Timer from "./timer";
 import MarkdownRenderer from "./markdown_renderer";
 import Highlight from "./highlight";
@@ -37,6 +38,7 @@ const hooks = {
   Menu,
   UserForm,
   VegaLite,
+  VisNetwork,
   Timer,
   MarkdownRenderer,
   Highlight,

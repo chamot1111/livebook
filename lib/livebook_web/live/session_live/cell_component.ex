@@ -453,6 +453,10 @@ defmodule LivebookWeb.SessionLive.CellComponent do
     live_component(LivebookWeb.Output.VegaLiteStaticComponent, id: id, spec: spec)
   end
 
+  defp render_output({:vis_network, spec}, %{id: id}) do
+    live_component(LivebookWeb.Output.VisNetworkComponent, id: id, spec: spec)
+  end
+
   defp render_output({:vega_lite_dynamic, pid}, %{id: id, socket: socket}) do
     live_render(socket, LivebookWeb.Output.VegaLiteDynamicLive,
       id: id,
