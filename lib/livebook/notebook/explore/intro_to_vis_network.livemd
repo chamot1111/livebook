@@ -1,0 +1,47 @@
+# Untitled notebook
+
+## Section
+
+```elixir
+Mix.install([
+  {:vis_network, git: "https://github.com/chamot1111/vis_network.git"},
+  {:kino, git: "https://github.com/chamot1111/kino.git"},
+  {:jason, "~> 1.2"}
+])
+```
+
+```elixir
+alias VisNetwork, as: Vn
+```
+
+```elixir
+Vn.from_json("""
+{
+  "data": {
+    "nodes": [{"id": "1", "label": "lbl1", "color": "rgb(68,0,0)"}, {"id": "2", "label": "lbl2", "color": "rgb(0,100,0)"}],
+    "edges": [{"id": "1-2", "from": "1", "to": "2", "value": 1, "arrows": "to"}]
+  },
+  "options": {
+    "configure": {
+        "enabled": false
+    },
+    "nodes": {
+        "shape": "dot",
+        "size": 16
+    },
+    "physics": {
+        "forceAtlas2Based": {
+        "gravitationalConstant": -26,
+        "centralGravity": 0.005,
+        "springLength": 230,
+        "springConstant": 0.18
+        },
+        "maxVelocity": 146,
+        "solver": "forceAtlas2Based",
+        "timestep": 0.35,
+        "stabilization": { "iterations": 150 }
+    }
+  }
+}
+""")
+```

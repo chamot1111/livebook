@@ -93,6 +93,11 @@ defmodule Livebook.Notebook.Explore do
     image_url: "/images/vega_lite.png"
   )
 
+  defnotebook(:intro_to_vis_network,
+    description: "Learn how to quickly create visualization networks.",
+    image_url: "/images/visjs_logo.png"
+  )
+
   defnotebook(:vm_introspection,
     description: "Extract and visualize information about a remote running node.",
     image_url: "/images/vm_introspection.png"
