@@ -1,7 +1,5 @@
-import vis from "vis-network";
+import * as vis from "vis-network";
 import { getAttributeOrThrow } from "../lib/attribute";
-import { throttle } from "../lib/utils";
-
 
 /**
  * A hook used to render graphics according to the given

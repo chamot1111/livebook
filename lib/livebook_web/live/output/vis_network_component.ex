@@ -10,7 +10,7 @@ defmodule LivebookWeb.Output.VisNetworkComponent do
   @impl true
   def render(assigns) do
     ~H"""
-    <div id={"vis-network#{@id}"} phx-hook="VisNetwork" phx-update="ignore" data-id={@id}>
+    <div id={"vis-network-#{@id}"} phx-hook="VisNetwork" phx-update="ignore" data-id={@id}>
     </div>
     """
   end
