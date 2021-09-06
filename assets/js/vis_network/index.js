@@ -17,19 +17,36 @@ const VisNetwork = {
   mounted() {
     this.props = getProps(this);
     this.state = {
-      container: null,
       network: null,
+      spec: null,
     };
 
-    this.state.container = document.createElement("div");
-    this.el.appendChild(this.state.container);
+    var btn = document.createElement("button");
+    btn.style.cssFloat = 'right';
+    this.el.appendChild(btn);
+
+    var container = document.createElement("div");
+    this.el.appendChild(container);
+
+    btn.innerText = "start";
+    btn.onclick = () => {
+      if(this.state.network) {
+        btn.innerText = "start";
+        this.state.network.destroy();
+        this.state.network = null;
+      } else {
+        btn.innerText = "stop";
+        this.state.network = new vis.Network(container, this.spec.data, this.spec.options);
+      }
+    };
 
     this.handleEvent(`vis_network:${this.props.id}:init`, ({ spec }) => {
-      if (!spec.data) {
-        spec.data = { values: [] };
-      }
+      this.spec = spec;
 
-      this.state.network = new vis.Network(this.state.container, spec.data, spec.options);
+      if(this.spec.options.autostart) {
+        btn.innerText = "stop";
+        this.state.network = new vis.Network(container, this.spec.data, this.spec.options);
+      }
     });
   },
 
@@ -40,6 +57,7 @@ const VisNetwork = {
   destroyed() {
     if (this.state.network) {
       this.state.network.destroy();
+      this.state.network = null;
     }
   },
 };
